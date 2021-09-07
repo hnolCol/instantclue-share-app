@@ -1,38 +1,80 @@
-.App {
+.wrapper {
   text-align: center;
+  margin-left:10px;
+  margin-right:10px;
+  
+}
+.right-container {
+    width:auto;
+    height:100vh;
+    overflow-x:hidden;
+    max-width:95%;
+    margin-right:10px;
+    padding-top:0px;
+    overflow-y: scroll;
+
+    }
+.left-container {
+    height:100vh;
+    width:225px;
+    float:left;
+    border-right:solid darkgrey 1px;
+    text-align:left; 
+    overflow-x:hidden;   
+    margin-left:5px;
+    padding-top:5px;
+    
+    }
+
+.centered-p-in-div {
+  text-align:center; 
+  vertical-align: middle;
+  display: table-cell; 
+  padding-left:4px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo-container{width:95%;text-align: center;padding-top: 10px;}
+.sideMenu-container{width:auto;max-width:95%;min-width:95%;padding-left:5%;clear: both;padding-top: 20px;}
+.std-logo-container{width:90px;margin-left:50px;margin-right:20px}
+
+.publicationBox {
+  max-width: 250px;
+  max-height: 185px;
+  min-width:  250px;
+  min-height: 185px;
+  border: solid darkgrey 0.75px;
+  padding: 15px 5px 15px 5px;
+  margin: 10px;
+}
+.project-view{
+  text-align : left;
+  margin-top: 45px;
+  margin-left: 15px
+}
+.entry-block{ 
+  text-align: left;
+  border-color: "darkgrey";
+  border-width: 0.3px;
+  border-style: solid;
+  position: relative;
+  padding: 2px 2px 2px 2px;
+  width: 90%;
+  min-height: 35px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.hover {
+  background-color: #E4DED4;
+  border: solid darkgrey 1px;
+}
+
+.background-video{
+
+  height: auto;
+  width: 100%;
+  padding-left:10px;
+  padding-right:10px;
+  padding-top:30px;
+  position: relative; /* optional depending on what you want to do in your app */
+  
+  
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
