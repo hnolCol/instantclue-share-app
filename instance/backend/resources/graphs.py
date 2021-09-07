@@ -42,10 +42,10 @@ class AppSpecificGraph(Resource):
         ""
         print("App specific graphs")
         return "App specific graphs need to use post.."
-        
+
     def post(self):
         ""
-
+        return "Beatuiful post"
         print("going here")
         print(request.json)
         if request.json is not None:
