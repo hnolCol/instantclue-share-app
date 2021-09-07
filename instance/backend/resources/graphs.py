@@ -38,6 +38,9 @@ class AppSpecificGraph(Resource):
         self.IDManager = kwargs["id-manager"]
         self.graphData = kwargs["graph-data"]
 
+    def get(self):
+        ""
+        print("App specific graphs")
     
     def post(self):
         ""
