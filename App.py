@@ -65,7 +65,8 @@ api.add_resource(GraphProtection,'/api/v1/graph/protected',
 
 @app.route("/")
 def build_index():
-    return render_template("index.html")
+    return "<h1 style='color:blue'>Hello There!</h1>"
+    #return render_template("index.html")
   
 @app.route('/api/v1/svgFiles/<svgFile>.svg')
 def serve_content(svgFile):
