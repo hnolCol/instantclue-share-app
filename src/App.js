@@ -7,7 +7,7 @@ import {
   Link,
   useParams,
 } from "react-router-dom";
-import { H5, Divider, ButtonGroup, H4, NavbarGroup, NavbarDivider, NavbarHeading, Button, Alignment, Code} from "@blueprintjs/core"
+import { H5, Divider, ButtonGroup, NavbarGroup, NavbarDivider, NavbarHeading, Button, Alignment, Code} from "@blueprintjs/core"
 
 import {InstantClueIcon} from "./components/utils/SVGs"
 import {MenuButton} from "./components/utils/MenuButton"

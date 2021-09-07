@@ -5,9 +5,7 @@ from flask_bcrypt import Bcrypt
 #external package imports
 import pandas as pd
 import os
-import sys
-import time
-import pickle
+
 #internal imports
 from instance.backend.resources.projects import Projects, ProjectEntries
 from instance.backend.resources.validateApp import AppValidator, CollisionChecker
@@ -65,8 +63,8 @@ api.add_resource(GraphProtection,'/api/v1/graph/protected',
 
 @app.route("/")
 def build_index():
-    return "<h1 style='color:blue'>Hello There!</h1>"
-    #return render_template("index.html")
+    #return "<h1 style='color:blue'>Hello There!</h1>"
+    return render_template("index.html")
   
 @app.route('/api/v1/svgFiles/<svgFile>.svg')
 def serve_content(svgFile):

@@ -17,6 +17,8 @@ class AppValidator(Resource):
         ""
         if "app-id" in request.json:
             appID = request.json["app-id"]
+            if appID is None:
+                return "No app-id found."
             verificationCode = request.json["verification"]
             decyrptedAppID = decrypt(self.instancePath,appID).decode("utf-8")
             
