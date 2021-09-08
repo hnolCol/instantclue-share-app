@@ -165,9 +165,10 @@ class GraphDataHandler(object):
         ""
         DB = self.getDB()
         idx = DB["app-id"] == appID
+        columnNames = [colName for colName in DB.columns if colName != "pwd"]
         if np.any(idx.values):
-            return DB.loc[idx].to_json()
-        return pd.DataFrame().to_json()
+            return DB[columnNames].loc[idx].to_json()
+        return pd.DataFrame(columns=columnNames).to_json()
 
         
 

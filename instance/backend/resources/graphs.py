@@ -156,14 +156,15 @@ class GraphManager(Resource):
 
 
     def put(self):
-        if "app-id" in request.json and "graph-props" in request.json:
-            appID = request.json["app-id"]
-            decryptedAppID = decrypt(self.instancePath,appID).decode("utf-8")
-            if self.IDManager.isVerified(decryptedAppID):
+        "Add a new graph"
+        if "appID" in request.json and "graph-props" in request.json:
+            appID = request.json["appID"]
+            
+            if self.IDManager.isVerified(appID):
                 data = request.json["data"]
                 graphProps = request.json["graph-props"]
                 searchData = request.json["search-data"]
-                url = self.graphData.addGraph(decryptedAppID,data,graphProps,searchData)
+                url = self.graphData.addGraph(appID,data,graphProps,searchData)
                 return url
                 
             else:
