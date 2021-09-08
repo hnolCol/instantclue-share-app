@@ -41,7 +41,7 @@ class AppSpecificGraph(Resource):
     def get(self):
         ""
         appID = request.args.get("appID")
-        return appID
+        
         if appID is not None:
             graphs = self.graphData.getGraphsByAppID(appID)
             return graphs 

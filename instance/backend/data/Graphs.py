@@ -161,13 +161,13 @@ class GraphDataHandler(object):
 
 
             
-    def getGraphsByAppID(self,decryptedAppID):
+    def getGraphsByAppID(self,appID):
         ""
         DB = self.getDB()
-        idx = DB["app-id"] == decryptedAppID
+        idx = DB["app-id"] == appID
         if np.any(idx.values):
-            return DB.loc[idx]
-        return pd.DataFrame() 
+            return DB.loc[idx].to_json()
+        return pd.DataFrame().to_json()
 
         
 
