@@ -11,6 +11,7 @@ class AppValidator(Resource):
     
     def get(self):
         "Returns if an app is validated"
+        return True
        
 
     def post(self):

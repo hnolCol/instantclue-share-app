@@ -40,20 +40,23 @@ class AppSpecificGraph(Resource):
 
     def get(self):
         ""
-        print("App specific graphs")
-        return "App specific graphs need to use post.."
-
+        appID = request.args.get("appID")
+        if appID is not None:
+            graphs = self.graphData.getGraphsByAppID(appID)
+            return graphs 
+            
     def post(self):
         ""
-        return "Beatuiful post"
+        #return "Beatuiful post"
         print("going here")
         print(request.json)
+        #reutnr request.json
         if request.json is not None:
             appID = request.json["app-id"]
-            print(appID)
-            print("BUM")
-            decyrptedAppID = decrypt(self.instancePath,appID).decode("utf-8")
-            graphs = self.graphData.getGraphsByAppID(decyrptedAppID)
+            # print(appID)
+            # print("BUM")
+            # decyrptedAppID = decrypt(self.instancePath,appID).decode("utf-8")
+            graphs = self.graphData.getGraphsByAppID(appID)
             print(graphs)
             return graphs.to_json(orient="records")
         else:
