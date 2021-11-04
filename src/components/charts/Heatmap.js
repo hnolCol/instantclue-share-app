@@ -2,11 +2,10 @@ import React from "react";
 
 
 import { Group } from '@visx/group';
-import { Text } from '@visx/text';
+
 import { format } from 'd3-format';
 import _ from "lodash"
-import { localPoint } from '@visx/event';
-import {findClosestMatch} from "../utils/Misc"
+
 import { Colors } from "@blueprintjs/core";
 import { scaleBand, scaleLinear, scaleOrdinal } from "@visx/scale";
 const oneDecimalFormat = format('.1f');
@@ -21,7 +20,7 @@ const initialState = {mouseOver:{row:[],
 
                     viewBox : "0 0 100 100"}
 
-var globalBinHeight = 0
+
 
 class Heatmap extends React.Component {
 
@@ -123,8 +122,7 @@ class Heatmap extends React.Component {
       }
 
       handleOnWheel(e) {
-          console.log(e)
-          console.log(e.deltaY)
+          
           const domain = this.yScale.domain()
           if (domain.length > 2){
               this.setState({rowLabels:this.props.data.rowLabels.slice(0,2)})
@@ -165,7 +163,7 @@ class Heatmap extends React.Component {
         
 
         this.yScale.domain(this.state.rowLabels)
-        console.log(this.state.rowLabels)
+        //console.log(this.state.rowLabels)
         this.xScale.range([margin.left, limits.xLimit - this.extraCols*binWidth]);
         this.yScale.range([marginTop + binHeight * numColLabels,
                             limits.yLimit]);
@@ -180,7 +178,7 @@ class Heatmap extends React.Component {
         
         width!==0?
                     <svg width={width} height={height} viewBox = {this.state.viewBox}>
-                    <Group onWheel={this.handleOnWheel}>
+                    <Group>
                         
                     {this.props.data.values.map((v,nRow) => {
                         var y = this.yScale(this.props.data.rowLabels[nRow])

@@ -1,5 +1,1 @@
 appID,graphID,protected,pwd,title,subtitle,DOI,contact,info,validTill
-FQPN8QEODQ68DJ9RRAHN,INDnyn,False,,Hallo,d,,h.nolte@age.mpg.de,BEatufiful graph,2021-12-02
-FQPN8QEODQ68DJ9RRAHN,C3cxj9,False,,Beautiful2,asd,,,asdadad,2021-12-03
-FQPN8QEODQ68DJ9RRAHN,mqvTFg,False,,Beautiful2,asd,,,asdadad,2021-12-03
-FQPN8QEODQ68DJ9RRAHN,El8rYn,False,,h,h,,,h,2021-12-04

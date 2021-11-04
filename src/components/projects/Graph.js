@@ -190,7 +190,7 @@ class GraphBase extends React.Component {
 
 
     onTableKeyDown(e){
-        console.log(e.key)
+        //console.log(e.key)
         if (e.key === "ArrowDown") {
             console.log("down")
         }
@@ -198,13 +198,7 @@ class GraphBase extends React.Component {
             console.log("up")
         }
     }
-    
 
-    downloadFile() {
-
-        console.log("su")
-        openURL("http://127.0.0.1:5000/api/v1/data/download?graphID=INDnyn")
-    }
 
     showSelectionInTable(){
         this.setState(prevState => ({
@@ -214,7 +208,7 @@ class GraphBase extends React.Component {
     }
 
     setSearchColumn (searchColumnName) {
-        console.log(searchColumnName)
+        //console.log(searchColumnName)
         this.setState({searchColumnName:searchColumnName})
     }
 
@@ -246,7 +240,7 @@ class GraphBase extends React.Component {
             {i: 'text', x: 2, y: 1, w: 1, h: 1,},
             {i: 'graph', x: 0, y: 0, w: 2, h: 2,static:true},
             // {i: 'qs', x: 0, y: 0, w: 1, h: 1, static:true},
-            {i: 'c', x: 2, y: 0, w: 2, h: 1,static:true}
+            {i: 'c', x: 2, y: 0, w: 2, h: 2,static:true}
           ],
         }
 

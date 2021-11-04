@@ -31,7 +31,7 @@ class GeneralSearch extends React.Component {
         axios.get("/api/v1/data", {params :{ graphID : this.props.graphID}} 
             )
             .then(response => {
-                console.log(response.data)
+                //console.log(response.data)
                 this.setItems(JSON.parse(response.data))})
     }
 

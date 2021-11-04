@@ -19,6 +19,9 @@ package-lock.json
 #security
 instance/static/private.pem
 
+#data
+instance/data/app-specific/*
+instance/data/ids/app.txt
 # misc
 .DS_Store
 .env.local
