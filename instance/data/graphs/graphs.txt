@@ -1,1 +1,0 @@
-appID,graphID,protected,pwd,title,subtitle,DOI,contact,info,validTill
