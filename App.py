@@ -34,7 +34,7 @@ app.config['MAIL_SERVER']= "mail.privateemail.com"
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USERNAME'] = "verification@instantclue.de"#support@instantclue.de"
 app.config['MAIL_DEFAULT_SENDER'] = "verification@instantclue.de"
-app.config['MAIL_PASSWORD'] = "instantcluegoeswild"
+app.config['MAIL_PASSWORD'] = ""
 app.config['MAIL_USE_TLS'] = False 
 app.config['MAIL_USE_SSL'] = True
 
