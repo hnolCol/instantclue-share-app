@@ -92,18 +92,21 @@ class GraphTextManager(Resource):
         ""
         shortURL = request.json["url"]
         pwd = request.json["pwd"]
-        if self.graphData.urlExists(shortURL):
-            if self.graphData.isGraphProtected(shortURL):
-                if self.graphData.checkPassword(shortURL,pwd):
-                    plotData, plotProps, searchData = self.graphData.getDataByURL(shortURL)
-                    return {
-                            "success" : True,
-                            "props" : plotProps, 
-                            }
-        return {
-                "success" : False,
-                "msg" : "Either url does not exist or password incorrect."
-                }
+        try:
+            if self.graphData.urlExists(shortURL):
+                if self.graphData.isGraphProtected(shortURL):
+                    if self.graphData.checkPassword(shortURL,pwd):
+                        plotData, plotProps, searchData = self.graphData.getDataByURL(shortURL)
+                        return {
+                                "success" : True,
+                                "props" : plotProps, 
+                                }
+            return {
+                    "success" : False,
+                    "msg" : "Either url does not exist or password incorrect."
+                    }
+        except Exception as e:
+            return str(e)
 
 
 class GraphManager(Resource):

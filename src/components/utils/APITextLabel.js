@@ -15,8 +15,8 @@ export function APITextLabel(props) {
             axios.get("/api/v1/data/size"
             )
             .then(response => {
-                console.log(response.data)
-                console.log(toString(response.data))
+                // console.log(response.data)
+                // console.log(toString(response.data))
                 setTextValue(response.data)
             }
                 )
