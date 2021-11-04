@@ -17,7 +17,7 @@ export function TextInformation(props) {
     return(
 
             <div>
-                <CollapsableText title = {"Information"} content = {content} {...rest}/>
+                {content}
             </div>
             )
 }

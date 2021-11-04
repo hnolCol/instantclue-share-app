@@ -32,13 +32,25 @@ class AppIDManager(object):
     def _loadData(self):
         ""
         self.data = pd.read_csv(self.pathToDB,index_col=None)
-        print(self.data)
+
+    def _saveData(self):
+        ""
+        if hasattr(self,"data"):
+            self.data.to_csv(self.pathToDB,index=None)
 
     def addAppFolder(self,appID):
         ""
         pathToFolder = os.path.join(self.instancePath,"data","app-specific",appID)
         os.mkdir(pathToFolder)
-
+    
+    def addShareCount(self,appID):
+        ""
+        self._loadData() 
+        boolIdx = self.data["id"] == appID
+        if np.any(boolIdx):
+            self.data.loc[boolIdx,"numberShares"] = self.data.loc[boolIdx,"numberShares"] + 1 
+            self._saveData() 
+        
     def addID(self, appID, email):
         ""
         if self.checkCollision(appID) and not self.fileIsModified:
@@ -50,38 +62,38 @@ class AppIDManager(object):
                 "verification": getRandomString(10)
                 }
             self.data = self.data.append(x,ignore_index=True)
-            print(self.data)
+            return True
+        return False
 
     def checkCollision(self,appID):
         ""
         return np.all(self.data["id"].values != appID)
     
-    def verify(self,decryptedAppID,verificationCode):
+    def verify(self,appID,verificationCode):
         ""
-        idx = self.data["id"]  == decryptedAppID
+        idx = self.data["id"]  == appID
         if np.any(idx.values):
             if self.data.loc[idx,"verification"].values[0] == verificationCode:
                 self.data.loc[idx,"validated"] = True
                 self.data.to_csv(self.pathToDB,index=None)
-                self.addAppFolder(decryptedAppID)
+                self.addAppFolder(appID)
                 return {"msg":"App is verified."}
         else:
             return {"msg":"App id not found."}
     
-    def isVerified(self,decryptedAppID):
+    def isVerified(self,appID):
         ""
-        idx = self.data["id"]  == decryptedAppID
+        self._loadData()
+        idx = self.data["id"]  == appID
         if np.any(idx.values):
             return self.data.loc[idx,"validated"].values[0] == True
-
         else:
 
             return False
     
-
-    def getDBIdxForAppID(self,decryptedAppID):
+    def getDBIdxForAppID(self,appID):
         ""
-        idx = self.data["id"]  == decryptedAppID
+        idx = self.data["id"]  == appID
         if np.any(idx.values):
             return True,idx
 

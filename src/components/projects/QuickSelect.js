@@ -120,7 +120,7 @@ class QuickSelect extends React.Component {
                     onItemSelect = {this.selectItem} 
                     itemRenderer = {this.renderItem} 
                     items = {this.props.items} 
-                    fill={true}
+                    fill={this.props.fill}
                     tagRenderer={this.renderTag}
                     popoverProps={{minimal: true, usePortal: false}}
                     resetOnSelect = {true}
@@ -133,7 +133,8 @@ class QuickSelect extends React.Component {
     }
 
     static defaultProps = {
-        items : [{"idx":0,"text":"hallo"},{"idx":1,"text":"genes"},{"idx":3,"text":"geneasds"}]
+        items : [{"idx":0,"text":"hallo"},{"idx":1,"text":"genes"},{"idx":3,"text":"geneasds"}],
+        fill : true
         }
 }
 

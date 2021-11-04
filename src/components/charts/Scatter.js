@@ -6,6 +6,10 @@ import Axis from "./utils/Axis"
 import _ from "lodash"
 import { localPoint } from '@visx/event';
 import {findClosestMatch} from "../utils/Misc"
+import { min } from "lodash-es";
+
+var lastClickedIdx = -1
+
 
 class ICScatter extends React.Component {
     constructor(props) {
@@ -14,7 +18,10 @@ class ICScatter extends React.Component {
         this.onMouseLeave = this.onMouseLeave.bind(this)
         this.onMouseEnter = this.onMouseEnter.bind(this)
         const {yDomain, xDomain} = this.props
-
+        
+        this.yDomainDiff = Math.abs(yDomain[1] - yDomain[0]) * 0.015
+        this.xDomainDiff = Math.abs(xDomain[1] - xDomain[0]) * 0.015
+       
         //define scales
         this.xScale = scaleLinear({
             domain : xDomain,
@@ -40,18 +47,27 @@ class ICScatter extends React.Component {
                 xLabel,
                 yLabel)
         const closestPoint = plotData[minIdx]
+        if (minIdx !== lastClickedIdx) {
+            lastClickedIdx  = minIdx
+            const xSVGCoords = this.xScale(closestPoint[xLabel])
+            const ySVGCoords = this.yScale(closestPoint[yLabel])
+            const xLabelCoord = this.xScale(closestPoint[xLabel]+this.xDomainDiff )
+            const yLabelCoord = this.yScale(closestPoint[yLabel]+this.yDomainDiff)
+            onHover([{
+                x:xSVGCoords,
+                y:ySVGCoords,
+                xLabel:xLabelCoord,
+                yLabel:yLabelCoord,
+                size:closestPoint["size"],
+                color:closestPoint["color"],
+                idx:closestPoint["idx"],
+                text:closestPoint[this.props.hoverSearchColumn]
+            }])
+        }
+   
         
-        const xSVGCoords = this.xScale(closestPoint[xLabel])
-        const ySVGCoords = this.yScale(closestPoint[yLabel])
        
-        onHover([{
-                    x:xSVGCoords,
-                    y:ySVGCoords,
-                    size:closestPoint["size"],
-                    color:closestPoint["color"],
-                    idx:closestPoint["idx"],
-                    text:closestPoint[hoverColumnName]
-                }])
+        
     }
        
     onMouseLeave(e){
@@ -87,10 +103,15 @@ class ICScatter extends React.Component {
         //const selectionActive = Object.keys(selectedItems).length > 0
         const colorInData = "color" in this.props.plotData[0]
         const sizeInData = "size" in this.props.plotData[0]
-        const xLabelOffset = Math.abs(this.props.xDomain[1] - this.props.xDomain[0]) * 0.02
-        const yLabelOffset = Math.abs(this.props.yDomain[1] - this.props.yDomain[0]) * 0.02
+        const xLabelOffset = Math.abs(this.props.xDomain[1] - this.props.xDomain[0]) * 0.015
+        const yLabelOffset = Math.abs(this.props.yDomain[1] - this.props.yDomain[0]) * 0.015
+        console.log(xLabelOffset)
+        var selectedData = []
+        if (selectedItems.length > 0){
+            selectedData = _.filter(this.props.displayData, item => selectedItems.includes(item.idx))
+        }
         
-        const selectedData = _.filter(this.props.plotData, item => Object.keys(selectedItems).includes(String(item.idx)))
+       
         return (
                     // set range for scales
                     <g onMouseMove={this.getMouseCoordinates} >  
@@ -104,7 +125,9 @@ class ICScatter extends React.Component {
                             />
 
                         {this.props.plotData.map(data => {
-                            return(<circle key={`dot-${data.idx}`}
+                            return(
+                            
+                            <circle key={`dot-${data.idx}`}
                                 cx={this.xScale(data[this.props.xLabel])} 
                                 cy={this.yScale(data[this.props.yLabel])} 
                                 r={sizeInData?data["size"]:3} 
@@ -122,7 +145,7 @@ class ICScatter extends React.Component {
                                     key = {`txt-${dataIdx}`}
                                     x = {this.xScale(this.props.annotProps[dataIdx]["xytext"][0])} 
                                     y = {this.yScale(this.props.annotProps[dataIdx]["xytext"][1])}>
-                                        {this.props.annotProps[dataIdx]["text"]}
+                                        {this.props.annotProps[dataIdx][this.props.hoverSearchColumn]}
                                     </Text>)
                             })
                             
@@ -132,6 +155,7 @@ class ICScatter extends React.Component {
                         {selectedData.map(data => {
                             const xValue = this.xScale(data[this.props.xLabel])
                             const yValue = this.yScale(data[this.props.yLabel])
+                            
                             return (
                             <g key = {`hoverGroup-${data.idx}`}>
                             {/* <rect x = {xValue} y = {yValue} width = {30} height={30} enableBackground={true} fill={"white"} stroke={"black"} strokeWidth={0.2}/> */}
@@ -139,15 +163,15 @@ class ICScatter extends React.Component {
                                 key = {`selectedCircle-${data.idx}`} 
                                 cx = {xValue} 
                                 cy = {yValue}
-                                r = {sizeInData?data["size"]:3}
-                                fill={colorInData?data["color"]:"red"}
+                                r = {sizeInData?data["size"]:3} 
+                                fill={data["color"]}
                                 strokeWidth={0.7} 
                                 stroke={"black"}/>
                             <Text 
                                key = {`SelectedTXT-${data.idx}`}
                                 x = {this.xScale(data[this.props.xLabel]+xLabelOffset)} 
                                 y = {this.yScale(data[this.props.yLabel]+yLabelOffset)}>
-                                    {selectedItems[data.idx]}
+                                    {data[this.props.hoverSearchColumn]}
                             </Text>
                             </g>)
                         })
@@ -194,7 +218,8 @@ class ICScatter extends React.Component {
         yTickLabelColor : undefined,
         annotIdx : [],
         annotProps : {},
-        selectedItems : []
+        selectedItems : [],
+        hoverSearchColumn : "Gene names"
 
 
     }

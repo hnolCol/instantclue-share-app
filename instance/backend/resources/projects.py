@@ -40,7 +40,7 @@ class ProjectEntries(Resource):
 
     def get(self):
         "Returns entries of a project"
-        print(self.instancePath)
+       
         d = {'ID': 123, 'title': 'Project entry', 'text':  "> A block *quote* with ~strikethrough~ and a URL: https://reactjs.org.", 
                     'isMarkDown': True, 'time': 1608642777.876534, 'timeFrmt': '12/22/2020, 14:12:57',"type":"text"}
         #d = load_obj("pp")

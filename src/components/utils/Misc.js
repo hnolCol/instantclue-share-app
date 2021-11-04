@@ -21,3 +21,10 @@ export function findClosestMatch(p,points,accX,accY,minDistX,minDistY){
     let minIdx = distanceToPoints.indexOf(Math.min(...distanceToPoints));
     return minIdx
 }
+
+
+export function Mailto({email, subject, body, children}){
+    return (
+      <a href={`mailto:${email}?subject=${encodeURIComponent(subject) || ''}&body=${encodeURIComponent(body) || ''}`}>{children}</a>
+    );
+  };

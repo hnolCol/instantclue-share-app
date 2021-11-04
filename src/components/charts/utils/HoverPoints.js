@@ -20,13 +20,14 @@ export function ICHoverPoints(props) {
                         cx = {data.x} 
                         cy = {data.y}
                         r = {data.size}
-                        fill={"red"} //data.color
+                        fill={hoverColor} //data.color
                         strokeWidth={0.7} 
                         stroke={"black"}/>
                     <Text 
                         key = {`SelectedTXT-${data.idx}`}
-                        x = {data.x} 
-                        y = {data.y}>
+                        style = {{cursor:"pointer"}}
+                        x = {data.xLabel} 
+                        y = {data.yLabel}>
                             {data.text}
                     </Text>
                     </g>)

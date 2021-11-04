@@ -4,20 +4,21 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from 'react-router-dom'
 import GraphBase from "./Graph"
-import { Button, InputGroup } from "@blueprintjs/core";
+import { Button, InputGroup, Navbar, Alignment, NavbarGroup } from "@blueprintjs/core";
+import { isObjectLike } from "lodash";
 
 
 export function GraphFrame(props) {
     const [inputValue, setInputValue] = useState("Check for password ...");
+    const [isLoading, setIsLoading] = useState(true)
     const [isProtected, setIsProtected] = useState(true);
-    const [isLoading, setIsLoading] = useState(false);
-    const [isProtectedChecked, setIsProtectedChecked] = useState(false);
+    const [checkRequired, setCheckRequired] = useState(true);
     const [pwd, setPwdString] = useState("");
-    const { url } = useParams()
+    const { graphID } = useParams()
 
-    if (!props.isInLastClicked(url)) {
-        props.reportLastClicked(url)
-    }
+    // if (!props.isInLastClicked(graphID)) {
+    //     props.reportLastClicked(graphID)
+    // }
 
     const checkPwd = function(e){
         setIsProtected(false)
@@ -28,43 +29,40 @@ export function GraphFrame(props) {
     const submitButton = <Button icon="arrow-right" onClick={checkPwd}/>
 
     useEffect(() => {
-        if (isProtectedChecked){
-        axios.get("/api/v1/graph/protected", {params :{ url : url}} 
+        
+        
+            axios.get("/api/v1/graph/protected", {params :{ graphID : graphID}} 
             )
             .then(response => {
-                
-            
-                if (response.data["protected"]!==undefined) {
-                    setIsProtected(JSON.parse(response.data["protected"]))
-                    setInputValue("Password required.")
-                }
-            
-                if (response.data["error"]!==undefined){
-                    setInputValue(response.data["error"])
-                }
-                })
-            }
-        // else {
+        
+                    if (response.data["protected"]!==undefined) {
 
-        //     console.log(pwd)
-        // }
-            })
+                        setIsProtected(JSON.parse(response.data["protected"]))
+                        setInputValue("Password required.")
+                    }
+                
+                    if (response.data["error"]!==undefined){
+                        setInputValue(response.data["error"])
+                    }
+                    })
+                setCheckRequired(false)
+                setIsLoading(false)
+                
+        })
     
     const handleInputChange = function(e){
-        setPwdString(e.target.value)
-        
-    }
+        setPwdString(e.target.value)   
+    }       
 
-    
-       
     return (
-        <div style={{width:"100%",textAlign:"center"}}>
-
-            {isProtected?
+        <div style={{width:"100%",textAlign:"center",marginTop:"30px"}}>
+            
+            {
+            isLoading?<p>Loading</p>:
+            isProtected?
                 <div style={{width:"20%"}}>
                 <p>Checking for password</p>
                 <InputGroup
-                    
                     placeholder={inputValue}
                     small={true}
                     type={"password"}
@@ -74,7 +72,7 @@ export function GraphFrame(props) {
                
                 </div>
             :
-            <GraphBase url = {url}/>
+            <GraphBase key = {Math.random()} graphID = {graphID}/>
             }
       
         </div>

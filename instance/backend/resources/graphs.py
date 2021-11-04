@@ -13,11 +13,10 @@ class GraphProtection(Resource):
 
     def get(self):
         ""
-        shortURL = request.args.get("url")
-        protectedGraph = self.graphData.isGraphProtected(shortURL)
+        graphID = request.args.get("graphID")
+        protectedGraph = self.graphData.isGraphProtected(graphID)
         if protectedGraph is not None:
-            protectedByPW = "true" if protectedGraph else "false"
-            return {"protected":protectedByPW}
+            return {"protected":"true" if protectedGraph else "false"}
         else:
             return {"error":"Graph not found"}
 
@@ -25,10 +24,10 @@ class GraphProtection(Resource):
         ""
         
         encryptedPWD = request.json["pwd"]
-        url = request.json["url"]
+        graphID = request.json["graphID"]
         decryptedPWD = decrypt(self.instancePath,encryptedPWD).decode("utf-8")
-        print(decryptedPWD)
-        self.graphData.checkPassword(url,decryptedPWD)
+        
+        self.graphData.checkPassword(graphID,decryptedPWD)
     
 class AppSpecificGraph(Resource):
     
@@ -49,8 +48,7 @@ class AppSpecificGraph(Resource):
     def post(self):
         ""
         #return "Beatuiful post"
-        print("going here")
-        print(request.json)
+        
         #reutnr request.json
         if request.json is not None:
             appID = request.json["app-id"]
@@ -72,7 +70,8 @@ class GraphTextManager(Resource):
 
     def get(self):
         ""
-        shortURL = request.args.get("url")
+        shortURL = request.args.get("graphID")
+        #print(shortURL)
         if self.graphData.urlExists(shortURL):
             if self.graphData.isGraphProtected(shortURL):
                 return {"success":False,"msg":"Graph is protected by password. Please use post method. And add pwd param with encrypted pw."}
@@ -85,7 +84,7 @@ class GraphTextManager(Resource):
 
         return {
             "success" : False,
-            "msg" : "Url does not exist."
+            "msg" : "GraphID does not exist or is missing."
         }
 
 
@@ -116,7 +115,9 @@ class GraphManager(Resource):
 
     def get(self):
         ""
-        shortURL = request.args.get("url")
+        shortURL = request.args.get("graphID")
+        
+        self.graphData.updateData()
         if self.graphData.urlExists(shortURL):
             if self.graphData.isGraphProtected(shortURL):
                 return {"success":False,"msg":"Graph is protected by password. Please use post method. And add pwd param with encrypted pw."}
@@ -137,7 +138,7 @@ class GraphManager(Resource):
 
     def post(self):
         ""
-        shortURL = request.json["url"]
+        shortURL = request.json["graphID"]
         pwd = request.json["pwd"]
         if self.graphData.urlExists(shortURL):
             if self.graphData.isGraphProtected(shortURL):
@@ -164,10 +165,10 @@ class GraphManager(Resource):
                 data = request.json["data"]
                 graphProps = request.json["graph-props"]
                 searchData = request.json["search-data"]
-                url = self.graphData.addGraph(appID,data,graphProps,searchData)
-                return url
+                graphID = self.graphData.addGraph(appID,data,graphProps,searchData)
+                return graphID
                 
             else:
-                return "Invalid app id."
+                return "Invalid appID. AppID not validated."
         else:
             return "Invalid json params."

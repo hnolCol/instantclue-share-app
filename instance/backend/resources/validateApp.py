@@ -11,7 +11,11 @@ class AppValidator(Resource):
     
     def get(self):
         "Returns if an app is validated"
-        return True
+        appID = request.args.get("appID")
+        isValidated = self.IDManager.isVerified(appID=appID) #returns np.bool_ - transform to bool!
+        
+        return bool(isValidated)
+        
        
 
     def post(self):
@@ -31,10 +35,10 @@ class AppValidator(Resource):
         if "app-id" in request.json and "email" in request.json:
             appID = request.json["app-id"]
             email = request.json["email"]
-            decyrptedAppID = decrypt(self.instancePath,appID).decode("utf-8")
+            
             decyrptedEmail = decrypt(self.instancePath,email).decode("utf-8")
-            self.IDManager.addID(decyrptedAppID,decyrptedEmail)
-           
+            success = self.IDManager.addID(appID,decyrptedEmail)
+            print (success)
        
        
 
