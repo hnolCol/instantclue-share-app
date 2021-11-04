@@ -6,7 +6,7 @@
 .pnp.js
 *.pyc
 /env 
-instance/data/
+instance/data
 
 package-lock.json
 
