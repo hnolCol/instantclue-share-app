@@ -105,7 +105,7 @@ class ICScatter extends React.Component {
         const sizeInData = "size" in this.props.plotData[0]
         const xLabelOffset = Math.abs(this.props.xDomain[1] - this.props.xDomain[0]) * 0.015
         const yLabelOffset = Math.abs(this.props.yDomain[1] - this.props.yDomain[0]) * 0.015
-        console.log(xLabelOffset)
+        //console.log(xLabelOffset)
         var selectedData = []
         if (selectedItems.length > 0){
             selectedData = _.filter(this.props.displayData, item => selectedItems.includes(item.idx))
