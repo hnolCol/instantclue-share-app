@@ -8,6 +8,7 @@ import "@blueprintjs/select/lib/css/blueprint-select.css"
 import "@blueprintjs/table/lib/css/table.css"
 import "react-grid-layout/css/styles.css"
 import "react-resizable/css/styles.css"
+import "@blueprintjs/popover2/lib/css/blueprint-popover2.css"
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
