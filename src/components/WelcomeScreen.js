@@ -1,7 +1,7 @@
 import React from "react";
 import { Callout, H3,} from "@blueprintjs/core";
 import { InstantClueIcon } from "./utils/SVGs";
-
+import {ReactComponent as WelcomeSVG} from "./utils/svg/fig.svg"
 export function WelcomeScreen(props) {
         return (
             <div className="welcome-screen">
@@ -18,8 +18,9 @@ export function WelcomeScreen(props) {
                 <p> If you have never heard about InstantClue; it is a software that helps you to create beautiful and highly customizable charts from high dimensional data.
                     It was created with omics sciences in mind, but can in general be used for any kind of data. Please visit the <a href = {"http://www.instantclue.uni-koeln.de"}>Instant Clue Webpage</a> for more information, or go directly to the <a href={"https://github.com/hnolCol/instantclue/releases"}>GitHub Release Page</a> to download the executables for Mac and Windows.</p>
                 <p>The web application allows you to share graphs from the InstantClue standalone software, which communicates with an InstantClue Application Programming Interface (API). Below we summarize our idea about the web application.</p>
-                <div style={{paddingTop:"25px",paddingBottom:"25px",textAlign:"center"}}>
-                <img src="/app-overview.png" alt="app_overview_instant_clue" width={"40%"}/>
+                <div style={{paddingTop:"25px",paddingBottom:"25px",textAlign:"center", width:"100%"}}>
+                    <WelcomeSVG />
+                
                 </div>
                 <Callout title = {"Share graphs within your lab/community"}>
                 The first usage example/idea is to share between your lab members or within your community. Once you created a chart in the 

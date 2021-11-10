@@ -79,3 +79,8 @@
     background-color: #e0e0e0;
 }
 
+
+.tooltip-div {
+  margin:"8px";
+  padding:"13px"
+}

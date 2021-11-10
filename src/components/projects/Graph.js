@@ -17,6 +17,9 @@ import { ParentSize } from '@visx/responsive';
 import { Mailto, openURL } from "../utils/Misc";
 import { Popover2 } from "@blueprintjs/popover2";
 import CsvDownload from "react-json-to-csv"
+import { TooltipButton } from "../utils/TooltipButton";
+
+
 const ReactGridLayout = WidthProvider(RGL);
 const initialState = {
                     isLoading:true,
@@ -287,9 +290,71 @@ class GraphBase extends React.Component {
                         </div>
                        
                 </div>
-                <ReactGridLayout className="layout" layout = {layout.md} rowHeight={400} cols = {6}
+                <ReactGridLayout className="layout" layout = {layout.md} rowHeight={400} cols = {6} isDraggable = {false} isResizable={false}
                            >
+                        
+                        <div key={'c'} style = {{border:"solid 0.5px darkgrey","borderRadius":"6px"}}>
+                                <div style={{height:"100%"}}>
+                                    <div style={{paddingTop:"5px",paddingRight:"3px", paddingLeft:"3px"}}>
+                                        <ControlGroup>
+                                       
+                                        <InputGroup
+                                            style={{marginTop:"2px"}}
+                                            leftElement={<Icon icon="search" />}
+                                            placeholder={`Search ${this.state.searchColumnName}`}
+                                            fill={true}
+                                            onChange = {this.onSearchStringChange}
+                                        />
+                                        <TooltipButton 
+                                                    content = {
+                                                            this.state.searchColumns.length > 0?
+                                                            <div style={{padding:"5px"}}>
+                                                            <Menu>
+                                                                {this.state.searchColumns.map((item,index) => {
+                                                                return <MenuItem key = {index} text={item} onClick = {() => {this.setSearchColumn(item)}} intent = {item === this.state.searchColumnName?"primary":"none"} icon = {item === this.state.searchColumnName?"tick":"none"}/>})}
+                                                            </Menu></div>:null
+                                                    }
+                                                    popoverProps = {{placement:"auto",interactionKind:"click"}}
+                                                    buttonProps = {{icon:"caret-right"}} />
+                                        <TooltipButton 
+                                                    content = {
+                                                            <Menu> 
+                                                            <p>If activated, only selected features will be shown.</p>
+                                                            </Menu>
+                                                    }
+                                                    popoverProps = {{placement:"top",interactionKind:"hover",hoverOpenDelay:120}}
+                                                    buttonProps = {{icon:this.state.showOnlySelection?"filter-remove":"filter",onClick:this.showSelectionInTable,intent:this.state.showOnlySelection?"primary":"none"}} />
 
+                                    <TooltipButton 
+                                                    content = {
+                                                            <Menu>
+                                                            <p>Remove selection.</p>
+                                                            </Menu>
+                                                    }
+                                                    popoverProps = {{placement:"top",interactionKind:"hover",hoverOpenDelay:120}}
+                                                    buttonProps = {{icon:"remove",onClick:this.removeTableSelection,intent:"danger"}} />
+
+                                        <CsvDownload className={"bp3-button"} data = {this.state.plotData} filename={`PlotData(${this.props.graphID} - ${this.state.graphProps.title}).csv`}>
+                                             <Icon icon={"download"}/>
+                                        </CsvDownload>
+                                        </ControlGroup>
+                                    </div>
+
+                                    <div style={{marginTop:"5px",minHeight:"90%",maxHeight:"90%",overflow:"scroll"}}>
+                                        <SelectableDataTable 
+                                            numRows = {this.getTableNumRows()}
+                                            columnNames = {this.state.displayData===undefined?[""]:Object.keys(this.state.displayData[0])}
+                                            data = {this.state.displayData}
+                                            onSelection = {this.onTableSelection} 
+                                            selectedItems = {this.state.selectedItems}
+                                            adjustColorInData = {this.colorAdjustment}
+                                            showOnlySelection = {this.state.showOnlySelection}
+                                            filterIdx = {this.state.tableFilterIdx}
+                                            />
+                                    </div>
+                                
+                                </div>
+                            </div>
     
                             
                             <div key = {"graph"} style = {{border:"solid 0.5px darkgrey","borderRadius":"6px"}}> 
@@ -355,55 +420,7 @@ class GraphBase extends React.Component {
                 
                             
 
-                            <div key={'c'} style = {{border:"solid 0.5px darkgrey","borderRadius":"6px"}}>
-                                <div style={{height:"100%"}}>
-                                    <div style={{paddingTop:"5px",paddingRight:"3px", paddingLeft:"3px"}}>
-                                        <ControlGroup>
-                                       
-                                        <InputGroup
-                                            style={{marginTop:"2px"}}
-                                            leftElement={<Icon icon="search" />}
-                                            placeholder={`Search ${this.state.searchColumnName}`}
-                                            fill={true}
-                                            onChange = {this.onSearchStringChange}
-                                        />
-                                        
-                                        <Popover2 
-                                            content={
-                                                this.state.searchColumns.length > 0?
-                                                <div style={{padding:"5px"}}>
-                                                <Menu>
-                                                    {this.state.searchColumns.map((item,index) => {
-                                                    return <MenuItem key = {index} text={item} onClick = {() => {this.setSearchColumn(item)}} intent = {item === this.state.searchColumnName?"primary":"none"} icon = {item === this.state.searchColumnName?"tick":"none"}/>})}
-                                                </Menu></div>:null}
-                                                placement="auto"
-                                                >
-
-                                            <Button icon={"caret-right"}/>
-                                        </Popover2>
-                                        <Button icon={this.state.showOnlySelection?"filter-remove":"filter"} onClick={this.showSelectionInTable} intent={this.state.showOnlySelection?"primary":"none"}/>
-                                        <Button icon={"remove"} onClick={this.removeTableSelection} intent="danger"/>
-                                        <CsvDownload className={"bp3-button"} data = {this.state.plotData} filename={`PlotData(${this.props.graphID} - ${this.state.graphProps.title}).csv`}>
-                                             <Icon icon={"download"}/>
-                                        </CsvDownload>
-                                        </ControlGroup>
-                                    </div>
-
-                                    <div style={{marginTop:"5px",minHeight:"90%",maxHeight:"90%",overflow:"scroll"}}>
-                                        <SelectableDataTable 
-                                            numRows = {this.getTableNumRows()}
-                                            columnNames = {this.state.displayData===undefined?[""]:Object.keys(this.state.displayData[0])}
-                                            data = {this.state.displayData}
-                                            onSelection = {this.onTableSelection} 
-                                            selectedItems = {this.state.selectedItems}
-                                            adjustColorInData = {this.colorAdjustment}
-                                            showOnlySelection = {this.state.showOnlySelection}
-                                            filterIdx = {this.state.tableFilterIdx}
-                                            />
-                                    </div>
-                                
-                                </div>
-                            </div>
+                            
                             
             </ReactGridLayout>
             </div>

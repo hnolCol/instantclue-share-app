@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="112.72mm" height="45.06mm" viewBox="0 0 319.51 127.74">
+  <rect x="90.91" y="29.75" width="64.13" height="32.28" rx="9.51" fill="#96c6ab" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.5"/>
+  <text transform="translate(107.86 52)" font-size="20.07" fill="#1d1d1b" font-family="ArialMT, Arial">API</text>
+  <g>
+    <ellipse cx="24.85" cy="45.89" rx="22.16" ry="22.2" fill="#fff" stroke="#4f6571" stroke-miterlimit="10" stroke-width="0.5"/>
+    <path d="M49.64,48A11.8,11.8,0,0,1,60.6,64,44.75,44.75,0,0,1,58,69a10.54,10.54,0,0,0-1.54,5,1.87,1.87,0,0,1-.3,1.16c-1.39,1.52-.8,3.29-.69,5a1.76,1.76,0,0,1-1.7,2.16,1.91,1.91,0,0,0-1,.29,4.63,4.63,0,0,1-6.18,0,1.85,1.85,0,0,0-1.13-.35,1.47,1.47,0,0,1-1.53-1.66c0-1.21-.31-2.42.12-3.6a.66.66,0,0,0-.24-.75,3.5,3.5,0,0,1-1-2.51,10.37,10.37,0,0,0-1.42-4.57,31.86,31.86,0,0,1-3-6.17A11.86,11.86,0,0,1,49.64,48Zm0,28v0h1.58l1.57,0c1.71-.09,2.43-.74,2.52-2.45a10.16,10.16,0,0,1,1.15-4.17c.86-1.65,1.69-3.31,2.56-5a9.65,9.65,0,0,0-.36-10,10.41,10.41,0,0,0-12.67-4.46,10.64,10.64,0,0,0-6.7,11.72,21.48,21.48,0,0,0,2.51,5.62A15.82,15.82,0,0,1,44.06,74c.06,1.32.81,1.93,2.15,2C47.33,76,48.46,76,49.59,76ZM46,79.71l7.61-1.35c.3,0,.57-.19.52-.54a.55.55,0,0,0-.62-.46l-1.91.3-5.7,1c-.37.06-.76.2-.74.64S45.55,79.74,46,79.71Zm.08,1.4c2.41-.42,5-.87,7.53-1.34.31-.06.66-.22.54-.64s-.44-.42-.78-.36c-2.53.43-5,.88-7.58,1.33-.32.06-.66.21-.62.61S45.58,81.13,46.08,81.11Zm3.19-.22a1.37,1.37,0,0,0,0,.28c1.34,0,2.69,0,4,0,.37,0,.91,0,.85-.55s-.5-.51-.94-.44ZM50,77.57c0-.09,0-.16,0-.24-1.41,0-2.83,0-4.23,0-.33,0-.69.11-.64.53s.37.5.72.44C47.22,78.08,48.61,77.82,50,77.57ZM48.09,82.2c1.58.64,1.74.64,3,0Z" transform="translate(-24.79 -20.75)" fill="none" stroke="#4f6571" stroke-miterlimit="10" stroke-width="0.5"/>
+  </g>
+  <g>
+    <line x1="54.83" y1="45.89" x2="81.58" y2="45.89" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.5"/>
+    <path d="M109.39,66.64A15.2,15.2,0,0,0,105.12,69l.86-2.38-.86-2.38A15.2,15.2,0,0,0,109.39,66.64Z" transform="translate(-24.79 -20.75)" fill="#1d1d1b"/>
+  </g>
+  <text transform="translate(84.59 78.25)" font-size="10.38" fill="#1d1d1b" font-family="ArialMT, Arial">instantclue.de/api</text>
+  <rect x="209.33" y="10.97" width="110.03" height="88.35" rx="8.27" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+  <g>
+    <line x1="84.6" y1="52" x2="57.85" y2="52" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.5"/>
+    <path d="M79.62,72.75a15.39,15.39,0,0,0,4.28-2.38L83,72.75l.86,2.38A15.14,15.14,0,0,0,79.62,72.75Z" transform="translate(-24.79 -20.75)" fill="#1d1d1b"/>
+  </g>
+  <text transform="translate(11.67 83.22)" font-size="10.38" fill="#1d1d1b" font-family="ArialMT, Arial">app id</text>
+  <text transform="translate(223.09 111.92)" font-size="10.38" fill="#1d1d1b" font-family="ArialMT, Arial">Share and add to <tspan x="16.44" y="12.45">publication</tspan></text>
+  <g>
+    <line x1="163" y1="45.18" x2="189.75" y2="45.18" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.5"/>
+    <path d="M217.57,65.93a15,15,0,0,0-4.28,2.37l.86-2.37-.86-2.38A15.25,15.25,0,0,0,217.57,65.93Z" transform="translate(-24.79 -20.75)" fill="#1d1d1b"/>
+  </g>
+  <g>
+    <line x1="192.77" y1="51.28" x2="166.02" y2="51.28" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.5"/>
+    <path d="M187.8,72a14.93,14.93,0,0,0,4.27-2.37L191.21,72l.86,2.38A15.2,15.2,0,0,0,187.8,72Z" transform="translate(-24.79 -20.75)" fill="#1d1d1b"/>
+  </g>
+  <text transform="translate(214.02 7.12)" font-size="8.3" fill="#1d1d1b" font-family="ArialMT, Arial">React Front-end</text>
+  <circle cx="216.05" cy="15.1" r="2.03" fill="#e6332a" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+  <circle cx="229.74" cy="15.1" r="2.03" fill="#3aaa35" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+  <circle cx="222.89" cy="15.1" r="2.03" fill="#f39200" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+  <line x1="263.69" y1="23.69" x2="263.69" y2="62.36" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+  <line x1="259.56" y1="58.88" x2="304.4" y2="58.88" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+  <circle cx="272.4" cy="48.36" r="2.18" fill="#f4caa1" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.2"/>
+  <circle cx="288.85" cy="34.28" r="2.18" fill="#cbbba0" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.2"/>
+  <circle cx="296.84" cy="51.92" r="2.18" fill="#476581" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.2"/>
+  <circle cx="284.16" cy="38.64" r="2.18" fill="#cbbba0" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.2"/>
+  <circle cx="268.2" cy="54.09" r="2.18" fill="#f4caa1" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.2"/>
+  <circle cx="284.16" cy="44.1" r="2.18" fill="#cbbba0" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.2"/>
+  <circle cx="269.13" cy="45.18" r="2.18" fill="#f4caa1" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.2"/>
+  <text transform="translate(265.46 29.28)" font-size="5.53" fill="#1d1d1b" font-family="ArialMT, Arial">Interactive <tspan x="0" y="6.64">chart</tspan></text>
+  <g>
+    <rect x="213.22" y="74.99" width="99.05" height="4.59" fill="#ededed"/>
+    <rect x="213.22" y="74.99" width="5.08" height="19.26" fill="#ededed"/>
+    <rect x="213.22" y="74.99" width="99.26" height="19.26" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+    <line x1="213" y1="79.58" x2="312.27" y2="79.58" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+    <line x1="213" y1="90.49" x2="312.27" y2="90.49" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+    <line x1="213" y1="86.85" x2="312.27" y2="86.85" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+    <line x1="213" y1="83.22" x2="312.27" y2="83.22" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+    <line x1="231.17" y1="74.99" x2="231.17" y2="94.25" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+    <line x1="213.22" y1="74.99" x2="213.22" y2="93" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+    <line x1="298.76" y1="74.99" x2="298.76" y2="94.25" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+    <line x1="285.24" y1="74.99" x2="285.24" y2="94.25" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+    <line x1="271.72" y1="74.99" x2="271.72" y2="94.25" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+    <line x1="258.21" y1="74.99" x2="258.21" y2="94.25" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+    <line x1="244.69" y1="74.99" x2="244.69" y2="94.25" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+    <line x1="218.3" y1="74.99" x2="218.3" y2="94.25" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+  </g>
+  <text transform="translate(215.76 29.28)" font-size="5.53" fill="#1d1d1b" font-family="ArialMT, Arial">Project<tspan x="0" y="6.64">Information</tspan></text>
+  <line x1="209.33" y1="18.77" x2="318.31" y2="18.77" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+  <rect x="234.97" y="12.93" width="79.75" height="4.35" rx="2.08" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+  <rect x="213" y="22.66" width="40.07" height="42.88" rx="2.04" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+  <rect x="254.81" y="22.45" width="56.18" height="42.88" rx="1.91" fill="none" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.3"/>
+  <text transform="translate(215.76 72.71)" font-size="5.53" fill="#1d1d1b" font-family="ArialMT, Arial">Data table</text>
+  <circle cx="292.65" cy="36.46" r="2.18" fill="#cbbba0" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.2"/>
+  <circle cx="274.58" cy="44.1" r="2.18" fill="#f4caa1" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.2"/>
+  <circle cx="288.85" cy="38.64" r="2.18" fill="#cbbba0" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.2"/>
+  <circle cx="300.11" cy="49.79" r="2.18" fill="#476581" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.2"/>
+  <circle cx="295.91" cy="55.53" r="2.18" fill="#476581" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.2"/>
+  <circle cx="296.84" cy="46.61" r="2.18" fill="#476581" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.2"/>
+  <circle cx="302.29" cy="45.54" r="2.18" fill="#476581" stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="0.2"/>
+  <text transform="translate(0 111.92)" font-size="10.38" fill="#1d1d1b" font-family="ArialMT, Arial">Standalone<tspan x="5.78" y="12.45">Software</tspan></text>
+</svg>
